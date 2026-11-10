@@ -1,0 +1,21 @@
+# Python virtual environment
+.venv/
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store
+
+# VS Code local settings
+.vscode/
+
+# Environment variables
+.env
+
+# Private images and datasets
+data/
+datasets/
+uploads/
