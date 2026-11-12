@@ -1,9 +1,11 @@
 
-import cv2
 from pathlib import Path
+from deepface import DeepFace
 
 
 def detect_faces(image_path):
+    """Detect faces in a photograph using RetinaFace."""
+
     image_path = Path(image_path).expanduser()
 
     # Check whether the photograph exists
@@ -11,42 +13,34 @@ def detect_faces(image_path):
         print("Error: Photograph not found.")
         return None
 
-    # Load the photograph
-    image = cv2.imread(str(image_path))
+    try:
+        # Detect faces using RetinaFace
+        detected_faces = DeepFace.extract_faces(
+            img_path=str(image_path),
+            detector_backend="retinaface",
+            enforce_detection=True,
+            align=True
+        )
 
-    if image is None:
-        print("Error: Could not read the photograph.")
-        return None
+        # Return face coordinates in the original format
+        faces = []
 
-    # Convert photograph to grayscale
-    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        for face in detected_faces:
+            region = face["facial_area"]
 
-    # Load the pretrained Haar Cascade detector
-    cascade_path = (
-        cv2.data.haarcascades
-        + "haarcascade_frontalface_default.xml"
-    )
+            x = region["x"]
+            y = region["y"]
+            w = region["w"]
+            h = region["h"]
 
-    detector = cv2.CascadeClassifier(cascade_path)
+            faces.append((x, y, w, h))
 
-    if detector.empty():
-        print("Error: Face detector could not be loaded.")
-        return None
+        return faces
 
-    # Detect faces with scores
-    faces, reject_levels, weights = detector.detectMultiScale3(
-        gray,
-        scaleFactor=1.05,
-        minNeighbors=8,
-        minSize=(60, 60),
-        outputRejectLevels=True
-    )
+    except ValueError as error:
+        print(f"Face detection failed: {error}")
+        return []
 
-    # Experimental score threshold
-    valid_faces = []
-
-    for face, weight in zip(faces, weights):
-        if weight >= 5.0:
-            valid_faces.append(face)
-
-    return valid_faces
+    except Exception as error:
+        print(f"Face detection error: {error}")
+        return []

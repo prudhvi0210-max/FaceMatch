@@ -1,8 +1,11 @@
 
-from database import create_table, register_person, get_all_persons
 from pathlib import Path
+
+from database import create_table, register_person, get_all_persons
 from face_utils import detect_faces
 from photo_storage import save_person_photo
+from face_embedding import generate_embedding
+from recognize_face import compare_with_registered_faces
 
 
 def main():
@@ -30,7 +33,6 @@ def main():
                 print("ID and name cannot be empty.")
                 continue
 
-            
             # Ask for a photograph
             photo_path = input(
                 "Enter photograph path: "
@@ -57,8 +59,6 @@ def main():
                 )
                 continue
 
-            # Save the person's information
-            
             # Check whether the person ID already exists
             from database import connect
 
@@ -82,7 +82,7 @@ def main():
                 print(f"Could not save photograph: {error}")
                 continue
 
-            # Register the person using the copied photograph
+            # Register the person
             if register_person(
                 person_id,
                 name,
@@ -91,13 +91,61 @@ def main():
                 print("Person registered successfully!")
                 print("Photograph saved in private storage.")
             else:
-                # Remove the copied file if registration fails
                 Path(saved_photo_path).unlink(missing_ok=True)
                 print("Registration failed: Person ID already exists.")
 
-
         elif choice == "2":
-            print("Face recognition is coming soon!")
+            print("\n--- Recognize Face ---")
+
+            photo_path = input(
+                "Enter photograph path: "
+            ).strip()
+
+            if not photo_path:
+                print("A photograph is required.")
+                continue
+
+            photo_path = Path(photo_path).expanduser().resolve()
+
+            # Check whether the photograph contains exactly one face
+            faces = detect_faces(photo_path)
+
+            if faces is None:
+                print("Recognition failed: Invalid photograph.")
+                continue
+
+            if len(faces) != 1:
+                print(
+                    "Recognition failed: "
+                    "The photograph must contain exactly one detected face."
+                )
+                continue
+
+            print("Photograph validated successfully!")
+            print("\nComparing with registered photographs...")
+
+            try:
+                results = compare_with_registered_faces(photo_path)
+            except Exception as error:
+                print(f"Comparison failed: {error}")
+                continue
+
+            if not results:
+                print("No registered photographs available for comparison.")
+                continue
+
+            print("\n--- Face Similarity Results ---")
+
+            for result in results:
+                print(
+                    f"ID: {result['person_id']} | "
+                    f"Name: {result['name']} | "
+                    f"Similarity: {result['similarity']:.4f}"
+                )
+
+            print(
+                "\nNote: Similarity scores are not proof of identity."
+            )
 
         elif choice == "3":
             print("\n--- Registered Persons ---")
