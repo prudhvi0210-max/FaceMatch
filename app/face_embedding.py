@@ -2,6 +2,7 @@
 from pathlib import Path
 import numpy as np
 from deepface import DeepFace
+from image_input import face_image_input
 from settings import MODEL_NAME, DETECTOR_BACKEND, NORMALIZATION
 
 PROJECT_DIR = Path(__file__).resolve().parent.parent
@@ -10,7 +11,7 @@ IMAGE_PATH = PROJECT_DIR / "sample_images" / "test.jpg"
 
 def generate_embedding(image_path):
     results = DeepFace.represent(
-        img_path=str(image_path),
+        img_path=face_image_input(image_path),
         model_name=MODEL_NAME,
         detector_backend=DETECTOR_BACKEND,
         align=True,

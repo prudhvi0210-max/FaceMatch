@@ -10,6 +10,15 @@ provisional requirements because no course rubric, template, deadline, or requir
 file format was supplied. See [handover](docs/HANDOVER.md) and
 [submission checklist](docs/SUBMISSION_CHECKLIST.md).
 
+## Windows version
+
+A separate Windows 11 x64 desktop app and installer build workflow are now included.
+This is a **build candidate**: it must be built and tested on Windows before sharing
+an installer. No Windows `.exe` has been built or verified on the Mac. See
+[Windows app/build instructions](docs/WINDOWS_APP.md). The Mac desktop shell remains available; recognition thresholds and reference
+images are unchanged. Windows users will have their own empty local records, not your photos
+or database. No public deployment is performed by these source additions.
+
 ## Open as a Mac app — no Terminal needed
 
 Double-click **FaceMatch** on your Desktop, or open **FaceMatch.app** in

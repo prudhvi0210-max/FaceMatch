@@ -40,3 +40,8 @@ submission/
 dist/
 database/*.db-*
 evaluation/face_crop_check.jpg
+
+# Platform-specific build environments and freezer cache
+.venv-windows/
+.venv-windows-build/
+build/

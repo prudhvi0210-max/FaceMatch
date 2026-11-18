@@ -3,6 +3,7 @@ from pathlib import Path
 from deepface import DeepFace
 import cv2
 from settings import DETECTOR_BACKEND
+from image_input import face_image_input
 
 
 def detect_faces(image_path):
@@ -15,14 +16,19 @@ def detect_faces(image_path):
         print("Error: Photograph not found.")
         return None
 
-    if cv2.imread(str(image_path)) is None:
+    try:
+        source = face_image_input(image_path)
+        preview = cv2.imread(source) if isinstance(source, str) else source
+        if preview is None:
+            raise ValueError("Unreadable photograph")
+    except (OSError, ValueError, cv2.error):
         print("Error: Photograph is unreadable. Choose a valid JPG or PNG image.")
         return None
 
     try:
         # Detect faces using RetinaFace
         detected_faces = DeepFace.extract_faces(
-            img_path=str(image_path),
+            img_path=source,
             detector_backend=DETECTOR_BACKEND,
             enforce_detection=True,
             align=True

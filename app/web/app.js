@@ -123,7 +123,7 @@ for (const kind of ['recognize','register']) $(kind+'-form').addEventListener('s
     }
   } catch(error){
     if(kind==='recognize')emptyResult();
-    message(kind+'-error',error.message==='Failed to fetch'?'Connection lost. Check the FaceMatch terminal. If registering, check the directory before retrying.':error.message);
+    message(kind+'-error',error.message==='Failed to fetch'?'Connection lost. Reopen FaceMatch. If registering, check the directory before retrying.':error.message);
   } finally {busy=false;button.textContent=old;updateButtons();}
 });
 page(location.hash.slice(1)||'overview',false);
