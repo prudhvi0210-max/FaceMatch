@@ -10,6 +10,15 @@ provisional requirements because no course rubric, template, deadline, or requir
 file format was supplied. See [handover](docs/HANDOVER.md) and
 [submission checklist](docs/SUBMISSION_CHECKLIST.md).
 
+## Open as a Mac app — no Terminal needed
+
+Double-click **FaceMatch** on your Desktop, or open **FaceMatch.app** in
+`~/Applications`. It opens in its own Mac window and starts the local recognition
+service automatically. Use the visual photo picker, registration form and directory.
+Quit with Command-Q or FaceMatch → Quit FaceMatch. See [Mac app instructions](docs/MAC_APP.md).
+The app uses the existing project and verified local environment; the command-line
+and browser launch options below remain available for development.
+
 ## Run on this MacBook Air
 
 A verified environment is installed outside iCloud-synced Documents. The original
@@ -100,6 +109,21 @@ python app/ui.py --port 8766
 This starts an empty demo database without changing existing enrollment. After
 stopping it, `unset FACEMATCH_DATA_DIR` returns to default storage.
 See [the demonstration script](docs/DEMO.md) for exact steps and private input paths.
+
+## Privacy and consent
+
+FaceMatch is designed to protect participants’ privacy: photographs are processed
+locally, without sending them to a cloud recognition service. Use only images
+covered by informed consent for this academic purpose, and obtain separate
+permission before displaying or sharing a person’s face. Personal photographs,
+enrollment databases and face embeddings are excluded from the public repository
+and submission package.
+
+Temporary query-upload copies are removed after processing; original files are
+unchanged. Enrolled reference photos remain locally stored until deliberately
+removed by the project owner. Access should be restricted. These measures reduce
+privacy risks but cannot eliminate them completely. Read the full
+[privacy and consent statement](docs/ETHICS_AND_DATA.md#privacy-and-consent-statement).
 
 ## Architecture and decision policy
 

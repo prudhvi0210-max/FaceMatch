@@ -4,6 +4,21 @@ This is a local academic prototype for comparing a face with enrolled records.
 It must not be described as establishing criminal identity, guilt or a person's
 legal identity, nor used to make consequential decisions about someone.
 
+## Privacy and consent statement
+
+FaceMatch is designed to protect participants’ privacy. Photographs should be
+used only with informed consent for the stated academic purpose. Images are
+processed locally on the user’s Mac and are not sent to a cloud recognition
+service. Personal photographs, enrollment databases and face embeddings are
+excluded from the public GitHub repository and submission package.
+
+Temporary copies of query uploads are removed after processing; the original
+files selected by the user are unchanged. Enrolled reference photographs remain
+in private local storage until deliberately removed by the project owner. Access
+should be restricted, and separate permission is required before displaying or
+sharing anyone’s photograph. These measures reduce privacy risks but do not
+eliminate them completely.
+
 ## Permission and provenance
 
 Before processing, establish that the participant or authorized data provider has

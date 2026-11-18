@@ -150,6 +150,21 @@ accuracy study. Further verification details and exact commands are in VALIDATIO
 
 ## 7. Consent, limitations and future work
 
+### Privacy statement
+
+FaceMatch is designed to protect participants’ privacy through local image
+processing and restricted use for the stated academic purpose. Photographs should
+be processed only with informed consent; permission to display or share a face
+must be obtained separately. Personal photos, enrollment databases and face
+embeddings are excluded from the public repository and submission package.
+Temporary query-upload copies are removed after processing, while the user’s
+original files are unchanged. Enrolled references remain locally stored until the
+project owner deliberately removes them. These safeguards reduce privacy risks;
+they do not guarantee that privacy can never be affected. The full policy is in
+[ETHICS_AND_DATA.md](ETHICS_AND_DATA.md).
+
+### Consent evidence, limitations and future work
+
 Faces and embeddings are biometric data. The submission excludes personal photos,
 local enrollment databases and embedding caches. Processing permission and any
 required institutional approvals must be confirmed before showing a participant's

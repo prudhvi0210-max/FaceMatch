@@ -14,13 +14,13 @@ def selected_files():
     files=[]
     for name in ['README.md','.gitignore','requirements.txt','requirements-lock.txt','requirements-recognition.txt','Start FaceMatch.command']:
         files.append(ROOT/name)
-    for folder,suffixes in [('app',{'.py','.html','.css','.js'}),('tests',{'.py'}),('scripts',{'.py'}),('evaluation',{'.py'})]:
+    for folder,suffixes in [('app',{'.py','.html','.css','.js'}),('tests',{'.py'}),('scripts',{'.py'}),('desktop',{'.swift'}),('evaluation',{'.py'})]:
         for path in (ROOT/folder).rglob('*'):
             if path.is_file() and path.suffix in suffixes and '__pycache__' not in path.parts and not path.is_symlink():
                 # Evaluation scripts only; datasets/manifests/caches are never selected.
                 if folder=='evaluation' and path.parent!=ROOT/'evaluation':continue
                 files.append(path)
-    for name in ['ACADEMIC_REPORT.md','PRESENTATION.md','DEMO.md','ETHICS_AND_DATA.md','VALIDATION.md','SUBMISSION_CHECKLIST.md','PROJECT_REPORT.md','THIRD_PARTY_NOTICES.md','HANDOVER.md']:
+    for name in ['ACADEMIC_REPORT.md','PRESENTATION.md','DEMO.md','ETHICS_AND_DATA.md','VALIDATION.md','SUBMISSION_CHECKLIST.md','PROJECT_REPORT.md','THIRD_PARTY_NOTICES.md','HANDOVER.md','MAC_APP.md']:
         files.append(ROOT/'docs'/name)
     files.append(ROOT/'evaluation/README.md')
     results=ROOT/'evaluation/results'
