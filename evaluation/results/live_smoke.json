@@ -1,0 +1,94 @@
+{
+  "timestamp": "2026-11-14T17:46:41.432222+00:00",
+  "python": "3.11.18 (main, Oct 25 2026, 19:41:29) [Clang 21.0.0 (clang-2100.3.34.2)]",
+  "checks": [
+    {
+      "check": "fresh_database_empty",
+      "passed": true
+    },
+    {
+      "check": "missing_path_rejected",
+      "passed": true
+    },
+    {
+      "check": "unreadable_image_rejected",
+      "passed": true
+    },
+    {
+      "check": "no_face_rejected",
+      "passed": true,
+      "message": "No usable face was detected. Choose a clear photograph containing one face."
+    },
+    {
+      "check": "empty_gallery_unavailable",
+      "passed": true
+    },
+    {
+      "check": "permission_required",
+      "passed": true,
+      "message": "Confirm permission to store this person\u2019s photograph."
+    },
+    {
+      "check": "real_registration",
+      "passed": true
+    },
+    {
+      "check": "persistence_across_processes",
+      "passed": true
+    },
+    {
+      "check": "duplicate_id_rejected",
+      "passed": true,
+      "message": "This ID is already registered. Use a different ID."
+    },
+    {
+      "check": "duplicate_did_not_overwrite",
+      "passed": true
+    },
+    {
+      "check": "valid_embedding",
+      "passed": true
+    },
+    {
+      "check": "aligned_face_crop_returned",
+      "passed": true,
+      "crop_shape": [
+        1157,
+        895,
+        3
+      ]
+    },
+    {
+      "check": "known_person_possible_match",
+      "passed": true,
+      "decision": "possible",
+      "score": 0.64074951866237
+    },
+    {
+      "check": "unknown_person_rejected",
+      "passed": true,
+      "decision": "unknown",
+      "best_score": 0.17470494937899647
+    },
+    {
+      "check": "synthetic_two_face_input_rejected",
+      "passed": true,
+      "message": "More than one face was detected. Choose a photograph of one person."
+    },
+    {
+      "check": "missing_reference_flagged",
+      "passed": true
+    },
+    {
+      "check": "missing_reference_unavailable",
+      "passed": true
+    }
+  ],
+  "all_passed": true,
+  "seconds": 59.02,
+  "notes": [
+    "All enrollment and synthetic image fixtures were disposable and removed.",
+    "Original private photographs and enrolled production records were not edited.",
+    "The two-face test used a synthetic side-by-side duplicate; natural group-photo detection and independent accuracy remain separate."
+  ]
+}

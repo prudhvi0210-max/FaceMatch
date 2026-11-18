@@ -1,0 +1,16 @@
+{
+  "counts": {
+    "dataset": 9,
+    "test_dataset": 10,
+    "unknown_dataset": 4
+  },
+  "identities": {
+    "dataset": 3,
+    "test_dataset": 3,
+    "unknown_dataset": 2
+  },
+  "overlaps": [],
+  "errors": [],
+  "note": "Exact byte and decoded-pixel checks do not rule out near duplicates, burst images or shared acquisition sessions.",
+  "source": "exploratory_existing_data"
+}

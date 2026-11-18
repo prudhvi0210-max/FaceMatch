@@ -1,0 +1,20 @@
+{
+  "note": "Hashes of currently available cache files; historical experiments did not record hashes. Weights are not redistributed.",
+  "files": [
+    {
+      "filename": "facenet512_weights.onnx",
+      "bytes": 93956456,
+      "sha256": "a7a4fbcc6af3175f5c4e91de0b92b4fa387e0e9f141efd59616337220363da33"
+    },
+    {
+      "filename": "arcface_weights.onnx",
+      "bytes": 136588094,
+      "sha256": "a897e00dcf6f15e99f7218f8ed081550ebd38c7115c434772faa7c488eb6ad40"
+    },
+    {
+      "filename": "retinaface.onnx",
+      "bytes": 117888450,
+      "sha256": "45d02defc4737b382691a52fc2bb49b984420dcbd26ee6ab9a8343c667d228f7"
+    }
+  ]
+}

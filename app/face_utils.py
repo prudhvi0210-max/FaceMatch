@@ -1,6 +1,8 @@
 
 from pathlib import Path
 from deepface import DeepFace
+import cv2
+from settings import DETECTOR_BACKEND
 
 
 def detect_faces(image_path):
@@ -13,11 +15,15 @@ def detect_faces(image_path):
         print("Error: Photograph not found.")
         return None
 
+    if cv2.imread(str(image_path)) is None:
+        print("Error: Photograph is unreadable. Choose a valid JPG or PNG image.")
+        return None
+
     try:
         # Detect faces using RetinaFace
         detected_faces = DeepFace.extract_faces(
             img_path=str(image_path),
-            detector_backend="retinaface",
+            detector_backend=DETECTOR_BACKEND,
             enforce_detection=True,
             align=True
         )
@@ -38,9 +44,10 @@ def detect_faces(image_path):
         return faces
 
     except ValueError as error:
-        print(f"Face detection failed: {error}")
-        return []
+        if "face could not be detected" in str(error).lower():
+            print("Face detection failed: no face was detected in the photograph.")
+            return []
+        raise RuntimeError("Face detection could not run. Check the model setup and cached weights.") from error
 
     except Exception as error:
-        print(f"Face detection error: {error}")
-        return []
+        raise RuntimeError("Face detection could not run. Check the model setup and cached weights.") from error

@@ -1,13 +1,22 @@
 
 import sqlite3
 from pathlib import Path
+from contextlib import contextmanager
+from settings import DB_PATH
 
-DB_PATH = Path(__file__).resolve().parent.parent / "database" / "facematch.db"
 
 
+
+@contextmanager
 def connect():
+    """Commit/rollback each operation and always release the SQLite connection."""
     DB_PATH.parent.mkdir(parents=True, exist_ok=True)
-    return sqlite3.connect(DB_PATH)
+    conn = sqlite3.connect(DB_PATH, timeout=10)
+    try:
+        with conn:
+            yield conn
+    finally:
+        conn.close()
 
 
 
@@ -39,6 +48,13 @@ def create_table():
 
 
 def register_person(person_id, name, photo_path=None):
+    if not isinstance(person_id, str) or not isinstance(name, str):
+        raise ValueError("Person ID and name must be text.")
+    person_id, name = person_id.strip(), name.strip()
+    if not person_id or not name or len(person_id) > 80 or len(name) > 160:
+        raise ValueError("Enter a nonempty ID (up to 80 characters) and name (up to 160 characters).")
+    if photo_path is not None:
+        photo_path = str(photo_path)
     with connect() as conn:
         try:
             conn.execute(

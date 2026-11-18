@@ -1,2 +1,8 @@
+# Tested target: CPython 3.11 on macOS arm64. ONNX backend; one OpenCV distribution.
+deepface==0.0.104
+retina-face==0.0.19
 numpy==2.4.6
-opencv-python==4.11.0.86
+opencv-contrib-python-headless==5.0.0.93
+onnxruntime==1.31.1
+pandas==3.1.1
+Pillow==13.0.0

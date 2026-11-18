@@ -1,0 +1,14 @@
+{
+  "python_syntax": "passed",
+  "javascript_syntax": "passed",
+  "launcher_syntax": "passed",
+  "cli_list_and_exit": "passed in fresh temporary database",
+  "empty_validation": "refused without metrics",
+  "final_real_blank_image": "rejected",
+  "unit_tests": 32,
+  "live_checks": 17,
+  "clean_install": "passed twice",
+  "pip_check": "passed",
+  "natural_group_photo": "not tested",
+  "independent_accuracy_validation": "not available"
+}

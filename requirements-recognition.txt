@@ -1,0 +1,2 @@
+# Compatibility entry point: all required runtime packages are in requirements.txt.
+-r requirements.txt

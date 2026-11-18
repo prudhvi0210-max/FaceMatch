@@ -1,0 +1,47 @@
+{
+  "aggregate_comparisons": [
+    {
+      "model": "Facenet512",
+      "experiment": "A_baseline",
+      "aggregate_counts_match": true
+    },
+    {
+      "model": "Facenet512",
+      "experiment": "B_without_photo2",
+      "aggregate_counts_match": true
+    },
+    {
+      "model": "Facenet512",
+      "experiment": "C_without_test4",
+      "aggregate_counts_match": true
+    },
+    {
+      "model": "Facenet512",
+      "experiment": "D_without_both",
+      "aggregate_counts_match": true
+    },
+    {
+      "model": "ArcFace",
+      "experiment": "A_baseline",
+      "aggregate_counts_match": true
+    },
+    {
+      "model": "ArcFace",
+      "experiment": "B_without_photo2",
+      "aggregate_counts_match": true
+    },
+    {
+      "model": "ArcFace",
+      "experiment": "C_without_test4",
+      "aggregate_counts_match": true
+    },
+    {
+      "model": "ArcFace",
+      "experiment": "D_without_both",
+      "aggregate_counts_match": true
+    }
+  ],
+  "decisions_compared": 112,
+  "decisions_match": true,
+  "max_score_difference_from_rounded_archive": 4.9654297818779725e-05
+}

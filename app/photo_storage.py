@@ -3,11 +3,7 @@ from pathlib import Path
 import shutil
 import uuid
 
-# Main FaceMatch project folder
-PROJECT_DIR = Path(__file__).resolve().parent.parent
-
-# Private photograph storage
-STORAGE_DIR = PROJECT_DIR / "data" / "registered_faces"
+from settings import STORAGE_DIR
 
 
 def save_person_photo(person_id, source_path):
@@ -24,6 +20,10 @@ def save_person_photo(person_id, source_path):
     destination = STORAGE_DIR / filename
 
     # Copy the photograph
-    shutil.copy2(source, destination)
+    try:
+        shutil.copy2(source, destination)
+    except Exception:
+        destination.unlink(missing_ok=True)
+        raise
 
     return str(destination)

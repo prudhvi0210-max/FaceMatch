@@ -1,0 +1,9 @@
+model,experiment,threshold,active_references,reference_failures,registered_total,registered_correct,registered_wrong,registered_rejected,registered_ambiguous,registered_failure,unknown_total,unknown_correct,unknown_false_identification,unknown_ambiguous,unknown_failure,registered_accuracy,unknown_rejection_rate
+Facenet512,A_baseline,0.5,9,0,10,9,0,1,0,0,4,2,2,0,0,0.9,0.5
+Facenet512,B_without_photo2,0.5,8,0,10,9,0,1,0,0,4,4,0,0,0,0.9,1.0
+Facenet512,C_without_test4,0.5,8,0,10,9,0,1,0,0,4,2,2,0,0,0.9,0.5
+Facenet512,D_without_both,0.5,7,0,10,9,0,1,0,0,4,4,0,0,0,0.9,1.0
+ArcFace,A_baseline,0.35,9,0,10,7,3,0,0,0,4,2,2,0,0,0.7,0.5
+ArcFace,B_without_photo2,0.35,8,0,10,7,3,0,0,0,4,2,2,0,0,0.7,0.5
+ArcFace,C_without_test4,0.35,8,0,10,8,1,1,0,0,4,4,0,0,0,0.8,1.0
+ArcFace,D_without_both,0.35,7,0,10,8,1,1,0,0,4,4,0,0,0,0.8,1.0

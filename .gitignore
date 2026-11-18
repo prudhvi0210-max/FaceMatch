@@ -22,3 +22,21 @@ uploads/
 database/*.db
 sample_images/
 outputs/
+# Private face evaluation dataset
+evaluation/dataset/
+
+# Private independent validation photographs
+/evaluation/validation_dataset/
+
+# Private evaluation photographs and local backups
+/evaluation/test_dataset/
+/evaluation/unknown_dataset/
+/evaluation/unknown_originals/
+*.bak
+numpy_import_log.txt
+
+# Submission packages and SQLite auxiliary files
+submission/
+dist/
+database/*.db-*
+evaluation/face_crop_check.jpg

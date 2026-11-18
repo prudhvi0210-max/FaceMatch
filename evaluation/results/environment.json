@@ -1,0 +1,17 @@
+{
+  "python": "3.11.18 (main, Oct 25 2026, 19:41:29) [Clang 21.0.0 (clang-2100.3.34.2)]",
+  "packages": {
+    "deepface": "0.0.104",
+    "retina-face": "0.0.19",
+    "numpy": "2.4.6",
+    "onnxruntime": "1.31.1",
+    "opencv-contrib-python-headless": "5.0.0.93"
+  },
+  "normalization": "base",
+  "align": true,
+  "detector": "retinaface",
+  "thresholds": {
+    "Facenet512": 0.5,
+    "ArcFace": 0.35
+  }
+}
